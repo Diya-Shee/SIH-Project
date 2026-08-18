@@ -12,6 +12,8 @@ import ProblemScreen from "./components/onboarding/ProblemScreen";
 
 import VajraReveal from "./components/reveal/VajraReveal";
 
+import Navbar from "./components/navigation/Navbar";
+
 import ProductHero from "./components/product/ProductHero";
 import Capabilities from "./components/product/Capabilities";
 import LiveSystem from "./components/product/LiveSystem";
@@ -183,7 +185,14 @@ function App() {
 
       {stage === "experience" && (
         <div className="product-site">
-
+          <Navbar
+            onHome={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }}
+          />
           <ProductHero
             onExplore={() =>
               document
