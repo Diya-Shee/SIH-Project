@@ -1,0 +1,8 @@
+/* =========================================================
+   VAJRA — ONBOARDING
+   ========================================================= */
+
+@import "./onboarding-pages/intro.css";
+@import "./onboarding-pages/concerns.css";
+@import "./onboarding-pages/scenario.css";
+@import "./onboarding-pages/problem.css";

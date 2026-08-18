@@ -1,0 +1,141 @@
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  position: relative;
+
+  min-height: 180px;
+
+  padding:
+    45px
+    clamp(30px, 7vw, 110px);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  border-top:
+    1px solid rgba(255,255,255,0.06);
+
+  color: #45413b;
+
+  font-family:
+    "DM Mono",
+    "Courier New",
+    monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.16em;
+}
+
+
+/* ---------------------------------------------------------
+   BRAND
+--------------------------------------------------------- */
+
+.footer-brand {
+  color: var(--text);
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-size: 22px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+.footer-brand span {
+  position: relative;
+
+  top: -7px;
+
+  margin-left: 3px;
+
+  color: var(--gold);
+
+  font-size: 8px;
+
+  letter-spacing: 0;
+}
+
+
+/* ---------------------------------------------------------
+   CENTER TEXT
+--------------------------------------------------------- */
+
+.footer > div:nth-child(2) {
+  color: #4d4943;
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   COPYRIGHT
+--------------------------------------------------------- */
+
+.footer > div:last-child {
+  color: #3d3a35;
+
+  text-align: right;
+}
+
+
+/* ---------------------------------------------------------
+   HOVER
+--------------------------------------------------------- */
+
+.footer-brand {
+  transition:
+    color 0.35s ease,
+    transform 0.35s var(--ease);
+}
+
+.footer-brand:hover {
+  color: var(--gold);
+
+  transform:
+    translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .footer {
+    min-height: 220px;
+
+    padding:
+      40px 22px;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    text-align: center;
+  }
+
+  .footer > div:nth-child(2),
+  .footer > div:last-child {
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-size: 20px;
+  }
+}

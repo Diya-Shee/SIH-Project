@@ -1,0 +1,67 @@
+/* =========================================================
+   VAJRA
+   RESPONSIVE FOUNDATION
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   TABLET / SMALL DESKTOP
+--------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+
+  .system-bar {
+    padding: 0 28px;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+  :root {
+    --max-width: 100%;
+  }
+
+  .grid-background {
+    background-size: 60px 60px;
+  }
+
+  .ambient-orb {
+    width: 300px;
+    height: 300px;
+  }
+
+
+  /* -------------------------------------------------------
+     SYSTEM BAR
+  ------------------------------------------------------- */
+
+  .system-bar {
+    height: 60px;
+    padding: 0 20px;
+  }
+
+  .system-status {
+    font-size: 7px;
+    letter-spacing: 0.12em;
+  }
+
+  .system-status span:last-child {
+    display: none;
+  }
+
+  .system-index {
+    font-size: 7px;
+  }
+
+  .brand-mini {
+    width: 30px;
+    height: 30px;
+  }
+
+}

@@ -1,122 +1,215 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+
+import { scenarios } from "./data/experienceData";
+
+import SystemBar from "./components/SystemBar";
+
+import IntroScreen from "./components/onboarding/IntroScreen";
+import ConcernScreen from "./components/onboarding/ConcernScreen";
+import ScenarioScreen from "./components/onboarding/ScenarioScreen";
+import ProblemScreen from "./components/onboarding/ProblemScreen";
+
+import VajraReveal from "./components/reveal/VajraReveal";
+
+import ProductHero from "./components/product/ProductHero";
+import Capabilities from "./components/product/Capabilities";
+import LiveSystem from "./components/product/LiveSystem";
+import Deployment from "./components/product/Deployment";
+import FinalCTA from "./components/product/FinalCTA";
+import Footer from "./components/product/Footer";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [stage, setStage] = useState("intro");
+
+  const [concern, setConcern] = useState(null);
+
+  const [scenarioChoice, setScenarioChoice] = useState(null);
+
+  const [hoveredConcern, setHoveredConcern] = useState(null);
+
+
+  /* -------------------------------------------------------
+     CONCERN
+  ------------------------------------------------------- */
+
+  const selectConcern = (item) => {
+    setConcern(item);
+    setHoveredConcern(null);
+    setStage("scenario");
+  };
+
+
+  /* -------------------------------------------------------
+     SCENARIO
+  ------------------------------------------------------- */
+
+  const selectScenario = (option) => {
+    setScenarioChoice(option);
+    setStage("problem");
+  };
+
+
+  /* -------------------------------------------------------
+     RESET
+  ------------------------------------------------------- */
+
+  const resetExperience = () => {
+    setConcern(null);
+    setScenarioChoice(null);
+    setHoveredConcern(null);
+
+    setStage("intro");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+
+  /* -------------------------------------------------------
+     ENTER VAJRA SYSTEM
+  ------------------------------------------------------- */
+
+  const enterSystem = () => {
+    setStage("experience");
+
+    setTimeout(() => {
+      document
+        .getElementById("capabilities")
+        ?.scrollIntoView({
+          behavior: "smooth",
+        });
+    }, 250);
+  };
+
+
+  /* -------------------------------------------------------
+     CURRENT SCENARIO
+  ------------------------------------------------------- */
+
+  const currentScenario = concern
+    ? scenarios[concern.id]
+    : null;
+
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <main
+      className={`app stage-${stage}`}
+      data-concern={
+        hoveredConcern ||
+        concern?.id ||
+        ""
+      }
+    >
 
-      <div className="ticks"></div>
+      {/* GLOBAL ATMOSPHERE */}
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <div className="noise" />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      <div className="grid-background" />
+
+      <div className="ambient-orb orb-one" />
+
+      <div className="ambient-orb orb-two" />
+
+
+      {/* SYSTEM BAR */}
+
+      <SystemBar
+        stage={stage}
+        onReset={resetExperience}
+      />
+
+
+      {/* =================================================
+          ONBOARDING
+      ================================================= */}
+
+      {stage === "intro" && (
+        <IntroScreen
+          onBegin={() =>
+            setStage("concerns")
+          }
+        />
+      )}
+
+
+      {stage === "concerns" && (
+        <ConcernScreen
+          hoveredConcern={hoveredConcern}
+          onHover={setHoveredConcern}
+          onLeave={() =>
+            setHoveredConcern(null)
+          }
+          onSelect={selectConcern}
+        />
+      )}
+
+
+      {stage === "scenario" && currentScenario && (
+        <ScenarioScreen
+          concern={concern}
+          onSelectScenario={selectScenario}
+        />
+      )}
+
+
+      {stage === "problem" && (
+        <ProblemScreen
+          scenarioChoice={scenarioChoice}
+          onContinue={() =>
+            setStage("reveal")
+          }
+        />
+      )}
+
+
+      {/* =================================================
+          VAJRA REVEAL
+      ================================================= */}
+
+      {stage === "reveal" && (
+        <VajraReveal
+          onEnterSystem={enterSystem}
+        />
+      )}
+
+
+      {/* =================================================
+          PRODUCT EXPERIENCE
+      ================================================= */}
+
+      {stage === "experience" && (
+        <div className="product-site">
+
+          <ProductHero
+            onExplore={() =>
+              document
+                .getElementById("capabilities")
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                })
+            }
+          />
+
+          <Capabilities />
+
+          <LiveSystem />
+
+          <Deployment />
+
+          <FinalCTA />
+
+          <Footer />
+
+        </div>
+      )}
+
+    </main>
+  );
 }
 
-export default App
+
+export default App;

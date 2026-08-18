@@ -1,0 +1,706 @@
+/* =========================================================
+   PRODUCT HERO — VAJRA SYSTEM
+   ========================================================= */
+
+.product-hero {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+
+  align-items: center;
+
+  padding:
+    110px
+    clamp(30px, 7vw, 110px)
+    80px;
+
+  overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   AMBIENT LIGHT
+--------------------------------------------------------- */
+
+.hero-ambient {
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  right: 2%;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(217,180,91,0.12),
+      rgba(217,180,91,0.035) 35%,
+      transparent 70%
+    );
+
+  filter: blur(25px);
+
+  pointer-events: none;
+
+  animation:
+    heroAmbientPulse 5s ease-in-out infinite alternate;
+}
+
+
+/* ---------------------------------------------------------
+   HERO COPY
+--------------------------------------------------------- */
+
+.product-hero-copy {
+  position: relative;
+
+  z-index: 3;
+
+  max-width: 650px;
+
+  animation:
+    productHeroEnter 1.1s var(--ease) both;
+}
+
+
+/* ---------------------------------------------------------
+   EYEBROW
+--------------------------------------------------------- */
+
+.product-hero-copy .eyebrow {
+  margin-bottom: 30px;
+
+  color: var(--gold);
+
+  opacity: 0.8;
+}
+
+
+/* ---------------------------------------------------------
+   TITLE
+--------------------------------------------------------- */
+
+.product-hero-copy h1 {
+  margin: 0;
+
+  font-size:
+    clamp(58px, 7.5vw, 120px);
+
+  line-height: 0.86;
+
+  letter-spacing: -0.065em;
+
+  font-weight: 400;
+
+  color: var(--text);
+}
+
+.product-hero-copy h1 span {
+  color: var(--gold);
+
+  text-shadow:
+    0 0 50px rgba(217,180,91,0.08);
+}
+
+
+/* ---------------------------------------------------------
+   DESCRIPTION
+--------------------------------------------------------- */
+
+.product-hero-copy > p {
+  max-width: 490px;
+
+  margin-top: 35px;
+
+  color: var(--text-soft);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   ACTIONS
+--------------------------------------------------------- */
+
+.hero-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 42px;
+}
+
+
+/* PRIMARY BUTTON */
+
+.hero-actions button:first-child {
+  position: relative;
+
+  min-width: 190px;
+
+  padding: 15px 20px;
+
+  color: #050505;
+
+  background: var(--gold);
+
+  border: 1px solid var(--gold);
+
+  font-size: 11px;
+
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s ease;
+}
+
+.hero-actions button:first-child::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent 25%,
+      rgba(255,255,255,0.45),
+      transparent 75%
+    );
+
+  transform: translateX(-120%);
+}
+
+.hero-actions button:first-child:hover::before {
+  animation:
+    heroButtonSweep 0.7s ease;
+}
+
+.hero-actions button:first-child:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 40px rgba(217,180,91,0.16);
+}
+
+
+/* GHOST BUTTON */
+
+.ghost-button {
+  padding: 15px 20px;
+
+  color: #77736b;
+
+  background: transparent;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.ghost-button:hover {
+  color: var(--text);
+
+  border-color:
+    rgba(217,180,91,0.3);
+
+  background:
+    rgba(217,180,91,0.025);
+}
+
+
+/* ---------------------------------------------------------
+   ROBOT AREA
+--------------------------------------------------------- */
+
+.product-robot {
+  position: relative;
+
+  z-index: 2;
+
+  min-height: 650px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform-style: preserve-3d;
+
+  animation:
+    robotHeroEnter 1.3s 0.15s var(--ease) both;
+}
+
+
+/* ---------------------------------------------------------
+   ROBOT IMAGE
+--------------------------------------------------------- */
+
+.product-robot img {
+  position: relative;
+
+  z-index: 4;
+
+  width:
+    min(470px, 42vw);
+
+  max-height: 560px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 35px 55px rgba(0,0,0,0.75)
+    );
+
+  transition:
+    transform 0.7s var(--ease),
+    filter 0.6s ease;
+
+  animation:
+    robotFloat 5s ease-in-out infinite;
+}
+
+.product-robot:hover img {
+  transform:
+    translateY(-10px)
+    scale(1.025);
+
+  filter:
+    drop-shadow(
+      0 0 65px rgba(217,180,91,0.18)
+    )
+    drop-shadow(
+      0 35px 60px rgba(0,0,0,0.8)
+    );
+}
+
+
+/* ---------------------------------------------------------
+   ROBOT RINGS
+--------------------------------------------------------- */
+
+.robot-ring {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(217,180,91,0.12);
+
+  pointer-events: none;
+}
+
+.ring-one {
+  width: 570px;
+  height: 570px;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(68deg);
+
+  animation:
+    productRingOne 16s linear infinite;
+}
+
+.ring-two {
+  width: 450px;
+  height: 450px;
+
+  border-style: dashed;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(68deg)
+    rotateZ(25deg);
+
+  animation:
+    productRingTwo 12s linear infinite reverse;
+}
+
+
+/* ---------------------------------------------------------
+   SYSTEM STATUS
+--------------------------------------------------------- */
+
+.robot-status {
+  position: absolute;
+
+  right: 4%;
+  top: 18%;
+
+  z-index: 6;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #77736b;
+
+  font-family:
+    "DM Mono",
+    "Courier New",
+    monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.14em;
+}
+
+.robot-status span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  box-shadow:
+    0 0 12px rgba(217,180,91,0.7);
+
+  animation:
+    productStatusPulse 1.6s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   HUD LABELS
+--------------------------------------------------------- */
+
+.robot-hud {
+  position: absolute;
+
+  z-index: 6;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  font-family:
+    "DM Mono",
+    "Courier New",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 0.16em;
+}
+
+.robot-hud span {
+  color: #45413b;
+}
+
+.robot-hud strong {
+  color: #8b867d;
+
+  font-weight: 400;
+}
+
+.hud-top {
+  top: 18%;
+  left: 8%;
+}
+
+.hud-bottom {
+  bottom: 19%;
+  right: 7%;
+}
+
+
+/* ---------------------------------------------------------
+   HUD LINES
+--------------------------------------------------------- */
+
+.robot-hud::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+
+  width: 45px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      transparent
+    );
+
+  opacity: 0.35;
+}
+
+.hud-top::before {
+  left: calc(100% + 12px);
+}
+
+.hud-bottom::before {
+  right: calc(100% + 12px);
+
+  transform:
+    rotate(180deg);
+}
+
+
+/* ---------------------------------------------------------
+   ANIMATIONS
+--------------------------------------------------------- */
+
+@keyframes productHeroEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(35px);
+
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+    filter: blur(0);
+  }
+}
+
+@keyframes robotHeroEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(45px)
+      scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      scale(1);
+  }
+}
+
+@keyframes robotFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes heroAmbientPulse {
+  from {
+    transform:
+      translateY(-50%)
+      scale(0.9);
+
+    opacity: 0.45;
+  }
+
+  to {
+    transform:
+      translateY(-50%)
+      scale(1.08);
+
+    opacity: 0.8;
+  }
+}
+
+@keyframes productRingOne {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(68deg)
+      rotateZ(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(68deg)
+      rotateZ(360deg);
+  }
+}
+
+@keyframes productRingTwo {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(68deg)
+      rotateZ(25deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(68deg)
+      rotateZ(-335deg);
+  }
+}
+
+@keyframes productStatusPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.15);
+  }
+}
+
+@keyframes heroButtonSweep {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   PRODUCT HERO — MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .product-hero {
+    grid-template-columns: 1fr;
+
+    padding:
+      120px
+      30px
+      80px;
+  }
+
+  .product-hero-copy {
+    max-width: 700px;
+
+    text-align: center;
+
+    margin: 0 auto;
+  }
+
+  .product-hero-copy > p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .product-robot {
+    min-height: 520px;
+
+    margin-top: 20px;
+  }
+
+  .product-robot img {
+    width: min(400px, 75vw);
+  }
+
+  .robot-status {
+    right: 10%;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .product-hero {
+    padding:
+      105px
+      22px
+      60px;
+  }
+
+  .product-hero-copy h1 {
+    font-size:
+      clamp(52px, 15vw, 78px);
+  }
+
+  .product-hero-copy > p {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .hero-actions button {
+    width: 100%;
+  }
+
+  .product-robot {
+    min-height: 430px;
+
+    margin-top: 10px;
+  }
+
+  .product-robot img {
+    width: min(300px, 75vw);
+  }
+
+  .robot-ring {
+    display: none;
+  }
+
+  .robot-status,
+  .robot-hud {
+    display: none;
+  }
+
+  .hero-ambient {
+    width: 500px;
+    height: 500px;
+  }
+}
