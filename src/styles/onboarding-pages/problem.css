@@ -1,0 +1,922 @@
+/* =========================================================
+   PROBLEM / LIMITATION
+   ========================================================= */
+
+.problem-screen {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 120px 30px;
+
+  overflow: hidden;
+}
+
+.problem-grid {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.2;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  mask-image:
+    radial-gradient(
+      circle at center,
+      black,
+      transparent 72%
+    );
+}
+
+.problem-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(760px, 100%);
+
+  text-align: center;
+
+  animation:
+    problemEnter 1.1s var(--ease) both;
+}
+
+
+/* ---------------------------------------------------------
+   LIMITATION LABEL
+--------------------------------------------------------- */
+
+.problem-content > .eyebrow {
+  margin-bottom: 60px;
+}
+
+
+/* ---------------------------------------------------------
+   PROBLEM LINES
+--------------------------------------------------------- */
+
+.problem-lines {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.problem-line {
+  margin: 0;
+
+  font-size:
+    clamp(30px, 5vw, 62px);
+
+  line-height: 1.05;
+
+  letter-spacing: -0.045em;
+}
+
+.problem-line.muted {
+  color: #55514a;
+}
+
+.problem-line.muted span {
+  color: #777169;
+}
+
+.problem-line.main {
+  color: var(--text);
+
+  font-size:
+    clamp(42px, 7vw, 88px);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.06em;
+}
+
+.problem-line.main strong {
+  color: var(--gold);
+
+  font-weight: 400;
+
+  text-shadow:
+    0 0 45px rgba(217,180,91,0.08);
+}
+
+
+/* ---------------------------------------------------------
+   DIVIDER
+--------------------------------------------------------- */
+
+.problem-divider {
+  width: 0;
+  height: 1px;
+
+  margin: 42px auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+
+  animation:
+    problemDivider 1s 0.9s var(--ease) forwards;
+}
+
+
+/* ---------------------------------------------------------
+   CHOSEN RESPONSE
+--------------------------------------------------------- */
+
+.chosen-response {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 70px;
+
+  color: #45413b;
+
+  font-family:
+    "DM Mono",
+    "Courier New",
+    monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.17em;
+}
+
+.chosen-response strong {
+  max-width: 500px;
+
+  color: #77736b;
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 400;
+
+  letter-spacing: 0.02em;
+}
+
+
+/* ---------------------------------------------------------
+   CONTINUE
+--------------------------------------------------------- */
+
+.continue-button {
+  margin-top: 55px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 30px;
+
+  padding: 15px 0;
+
+  color: #77736b;
+
+  background: transparent;
+
+  border: 0;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.35s ease,
+    gap 0.4s var(--ease);
+}
+
+.continue-button span:last-child {
+  color: var(--gold);
+
+  font-size: 18px;
+
+  transition:
+    transform 0.4s var(--ease);
+}
+
+.continue-button:hover {
+  color: var(--text);
+
+  gap: 38px;
+}
+
+.continue-button:hover span:last-child {
+  transform: translateX(5px);
+}
+
+
+/* ---------------------------------------------------------
+   ANIMATIONS
+--------------------------------------------------------- */
+
+@keyframes problemEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(30px);
+
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+    filter: blur(0);
+  }
+}
+
+@keyframes problemDivider {
+  from {
+    width: 0;
+
+    opacity: 0;
+  }
+
+  to {
+    width: 110px;
+
+    opacity: 1;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  .problem-screen {
+    padding:
+      110px
+      24px
+      70px;
+  }
+
+  .problem-content > .eyebrow {
+    margin-bottom: 45px;
+  }
+
+  .problem-divider {
+    margin: 30px auto;
+  }
+
+  .chosen-response {
+    margin-top: 50px;
+  }
+
+  .continue-button {
+    margin-top: 42px;
+  }
+}
+/* =========================================================
+   VAJRA REVEAL
+   ========================================================= */
+
+.reveal-screen {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 30px;
+
+  overflow: hidden;
+
+  perspective: 1200px;
+}
+
+
+/* ---------------------------------------------------------
+   BACKGROUND GRID
+--------------------------------------------------------- */
+
+.reveal-grid {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      rgba(217,180,91,0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(217,180,91,0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image:
+    radial-gradient(
+      circle at center,
+      black,
+      transparent 72%
+    );
+
+  animation:
+    revealGridMove 16s linear infinite;
+}
+
+
+/* ---------------------------------------------------------
+   CENTRAL LIGHT
+--------------------------------------------------------- */
+
+.reveal-light {
+  position: absolute;
+
+  width: min(800px, 90vw);
+  height: min(800px, 90vw);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(217,180,91,0.16),
+      rgba(217,180,91,0.035) 35%,
+      transparent 68%
+    );
+
+  filter: blur(15px);
+
+  pointer-events: none;
+
+  animation:
+    revealLightPulse 4s ease-in-out infinite alternate;
+}
+
+
+/* ---------------------------------------------------------
+   CONTENT
+--------------------------------------------------------- */
+
+.reveal-content {
+  position: relative;
+  z-index: 3;
+
+  width: min(900px, 100%);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  animation:
+    revealContentEnter 1.5s var(--ease) both;
+}
+
+
+/* ---------------------------------------------------------
+   LABEL
+--------------------------------------------------------- */
+
+.reveal-label {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  color: #565149;
+
+  font-family:
+    "DM Mono",
+    "Courier New",
+    monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.2em;
+}
+
+.reveal-label span {
+  display: block;
+
+  width: 30px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold)
+    );
+}
+
+.reveal-label span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      transparent
+    );
+}
+
+
+/* ---------------------------------------------------------
+   TITLE
+--------------------------------------------------------- */
+
+.reveal-title {
+  margin-top: 35px;
+
+  font-size:
+    clamp(68px, 11vw, 150px);
+
+  line-height: 0.82;
+
+  letter-spacing: -0.07em;
+
+  text-shadow:
+    0 0 70px rgba(217,180,91,0.07);
+}
+
+.reveal-title span {
+  color: var(--gold);
+}
+
+
+/* ---------------------------------------------------------
+   ROBOT
+--------------------------------------------------------- */
+
+.robot-reveal {
+  position: relative;
+
+  width: min(480px, 75vw);
+
+  margin-top: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform-style: preserve-3d;
+}
+
+.robot-reveal img {
+  position: relative;
+
+  z-index: 3;
+
+  width: min(360px, 70vw);
+
+  max-height: 430px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 30px 50px rgba(0,0,0,0.7)
+    );
+
+  animation:
+    robotRevealEnter 1.4s 0.25s var(--ease) both;
+
+  transition:
+    filter 0.5s ease,
+    transform 0.5s var(--ease);
+}
+
+.robot-reveal:hover img {
+  transform:
+    translateY(-8px)
+    scale(1.025);
+
+  filter:
+    drop-shadow(
+      0 0 65px rgba(217,180,91,0.22)
+    )
+    drop-shadow(
+      0 35px 55px rgba(0,0,0,0.8)
+    );
+}
+
+
+/* ---------------------------------------------------------
+   ROBOT AURA
+--------------------------------------------------------- */
+
+.robot-aura {
+  position: absolute;
+
+  width: 65%;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(217,180,91,0.12),
+      transparent 65%
+    );
+
+  filter: blur(15px);
+
+  animation:
+    auraPulse 3.5s ease-in-out infinite alternate;
+}
+
+
+/* ---------------------------------------------------------
+   ORBITS
+--------------------------------------------------------- */
+
+.robot-orbit {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border:
+    1px solid rgba(217,180,91,0.15);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.orbit-a {
+  width: 95%;
+  height: 38%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-12deg);
+
+  animation:
+    orbitA 12s linear infinite;
+}
+
+.orbit-b {
+  width: 75%;
+  height: 45%;
+
+  border-style: dashed;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(24deg);
+
+  animation:
+    orbitB 18s linear infinite reverse;
+}
+
+
+/* ---------------------------------------------------------
+   SCAN LINE
+--------------------------------------------------------- */
+
+.robot-scan-line {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 12%;
+  right: 12%;
+  top: 50%;
+
+  height: 1px;
+
+  overflow: hidden;
+
+  opacity: 0.55;
+
+  pointer-events: none;
+}
+
+.robot-scan-line span {
+  display: block;
+
+  width: 30%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+
+  animation:
+    robotScan 3s linear infinite;
+}
+
+
+/* ---------------------------------------------------------
+   DESCRIPTION
+--------------------------------------------------------- */
+
+.reveal-description {
+  max-width: 480px;
+
+  margin-top: 30px;
+
+  color: var(--text-soft);
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+.reveal-description strong {
+  color: var(--text);
+
+  font-weight: 500;
+}
+
+
+/* ---------------------------------------------------------
+   DISCOVER BUTTON
+--------------------------------------------------------- */
+
+.discover-button {
+  min-width: 260px;
+
+  margin-top: 38px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 35px;
+
+  padding:
+    16px
+    20px;
+
+  color: var(--text);
+
+  background:
+    rgba(217,180,91,0.025);
+
+  border:
+    1px solid rgba(217,180,91,0.25);
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s var(--ease);
+}
+
+.discover-button::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.08),
+      transparent
+    );
+
+  transform: translateX(-100%);
+}
+
+.discover-button:hover::before {
+  animation:
+    buttonSweep 0.8s ease;
+}
+
+.discover-button:hover {
+  color: #050505;
+
+  background: var(--gold);
+
+  border-color: var(--gold);
+
+  transform:
+    translateY(-3px);
+}
+
+.discover-button b {
+  color: var(--gold);
+
+  font-size: 17px;
+
+  font-weight: 400;
+
+  transition:
+    color 0.35s ease,
+    transform 0.35s var(--ease);
+}
+
+.discover-button:hover b {
+  color: #050505;
+
+  transform:
+    translateX(5px);
+}
+
+
+/* ---------------------------------------------------------
+   ANIMATIONS
+--------------------------------------------------------- */
+
+@keyframes revealContentEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.96);
+
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1);
+
+    filter: blur(0);
+  }
+}
+
+@keyframes robotRevealEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(35px)
+      scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@keyframes revealGridMove {
+  from {
+    transform:
+      translateY(0);
+  }
+
+  to {
+    transform:
+      translateY(70px);
+  }
+}
+
+@keyframes revealLightPulse {
+  from {
+    transform: scale(0.85);
+
+    opacity: 0.45;
+  }
+
+  to {
+    transform: scale(1.12);
+
+    opacity: 0.8;
+  }
+}
+
+@keyframes auraPulse {
+  from {
+    transform: scale(0.85);
+
+    opacity: 0.3;
+  }
+
+  to {
+    transform: scale(1.15);
+
+    opacity: 0.75;
+  }
+}
+
+@keyframes orbitA {
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(348deg);
+  }
+}
+
+@keyframes orbitB {
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(-336deg);
+  }
+}
+
+@keyframes robotScan {
+  from {
+    transform:
+      translateX(-120%);
+  }
+
+  to {
+    transform:
+      translateX(380%);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  .reveal-screen {
+    padding:
+      100px 20px 70px;
+  }
+
+  .reveal-title {
+    margin-top: 28px;
+
+    font-size:
+      clamp(62px, 17vw, 95px);
+  }
+
+  .robot-reveal {
+    margin-top: 30px;
+  }
+
+  .robot-reveal img {
+    width: min(290px, 70vw);
+
+    max-height: 340px;
+  }
+
+  .robot-orbit {
+    display: none;
+  }
+
+  .robot-scan-line {
+    display: none;
+  }
+
+  .reveal-description {
+    margin-top: 20px;
+
+    font-size: 13px;
+  }
+
+  .discover-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}

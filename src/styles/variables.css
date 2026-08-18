@@ -1,0 +1,20 @@
+:root {
+  --bg: #050505;
+  --surface: #0a0a0a;
+  --surface-light: #101010;
+
+  --text: #f2f0eb;
+  --text-soft: #a6a29a;
+  --text-muted: #55524d;
+
+  --gold: #d9b45b;
+  --gold-soft: rgba(217, 180, 91, 0.18);
+  --gold-faint: rgba(217, 180, 91, 0.06);
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(217, 180, 91, 0.2);
+
+  --max-width: 1400px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}

@@ -1,0 +1,284 @@
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.final-cta {
+  position: relative;
+
+  min-height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    130px 30px;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   GLOW
+--------------------------------------------------------- */
+
+.cta-glow {
+  position: absolute;
+
+  width: 700px;
+  height: 500px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(217,180,91,0.12),
+      rgba(217,180,91,0.035) 35%,
+      transparent 70%
+    );
+
+  filter: blur(30px);
+
+  pointer-events: none;
+
+  animation:
+    ctaGlowPulse 5s ease-in-out infinite alternate;
+}
+
+
+/* ---------------------------------------------------------
+   CONTENT
+--------------------------------------------------------- */
+
+.final-cta > *:not(.cta-glow) {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* ---------------------------------------------------------
+   EYEBROW
+--------------------------------------------------------- */
+
+.final-cta .eyebrow {
+  margin-bottom: 30px;
+
+  color: var(--gold);
+
+  opacity: 0.75;
+}
+
+
+/* ---------------------------------------------------------
+   TITLE
+--------------------------------------------------------- */
+
+.final-cta h2 {
+  margin: 0;
+
+  font-size:
+    clamp(60px, 9vw, 135px);
+
+  line-height: 0.85;
+
+  letter-spacing: -0.07em;
+
+  font-weight: 400;
+
+  color: var(--text);
+
+  animation:
+    ctaTitleFloat 6s ease-in-out infinite;
+}
+
+.final-cta h2 span {
+  color: var(--gold);
+
+  text-shadow:
+    0 0 60px rgba(217,180,91,0.1);
+}
+
+
+/* ---------------------------------------------------------
+   DESCRIPTION
+--------------------------------------------------------- */
+
+.final-cta p {
+  margin-top: 35px;
+
+  color: var(--text-soft);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   BUTTON
+--------------------------------------------------------- */
+
+.cta-button {
+  position: relative;
+
+  min-width: 240px;
+
+  margin-top: 42px;
+
+  padding:
+    16px 22px;
+
+  color: #050505;
+
+  background: var(--gold);
+
+  border:
+    1px solid var(--gold);
+
+  font-size: 11px;
+
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s var(--ease),
+    box-shadow 0.4s ease;
+}
+
+
+/* BUTTON SWEEP */
+
+.cta-button::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent 20%,
+      rgba(255,255,255,0.5),
+      transparent 80%
+    );
+
+  transform:
+    translateX(-120%);
+}
+
+.cta-button:hover::before {
+  animation:
+    ctaButtonSweep 0.8s ease;
+}
+
+.cta-button:hover {
+  transform:
+    translateY(-4px);
+
+  box-shadow:
+    0 18px 45px rgba(217,180,91,0.18);
+}
+
+
+/* ---------------------------------------------------------
+   ANIMATIONS
+--------------------------------------------------------- */
+
+@keyframes ctaGlowPulse {
+  from {
+    transform:
+      translate(-50%, -50%)
+      scale(0.85);
+
+    opacity: 0.45;
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      scale(1.1);
+
+    opacity: 0.8;
+  }
+}
+
+
+@keyframes ctaTitleFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-5px);
+  }
+}
+
+
+@keyframes ctaButtonSweep {
+  from {
+    transform:
+      translateX(-120%);
+  }
+
+  to {
+    transform:
+      translateX(120%);
+  }
+}
+
+
+/* =========================================================
+   FINAL CTA — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .final-cta {
+    min-height: 70vh;
+
+    padding:
+      100px 22px;
+  }
+
+  .final-cta h2 {
+    font-size:
+      clamp(50px, 15vw, 80px);
+  }
+
+  .final-cta p {
+    margin-top: 25px;
+
+    font-size: 13px;
+  }
+
+  .cta-button {
+    width: 100%;
+
+    max-width: 300px;
+
+    margin-top: 35px;
+  }
+
+  .cta-glow {
+    width: 500px;
+    height: 400px;
+  }
+}

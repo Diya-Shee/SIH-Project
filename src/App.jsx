@@ -19,7 +19,6 @@ import Deployment from "./components/product/Deployment";
 import FinalCTA from "./components/product/FinalCTA";
 import Footer from "./components/product/Footer";
 
-import "./styles/onboarding.css";
 function App() {
   const [stage, setStage] = useState("intro");
 

@@ -1,0 +1,439 @@
+/* =========================================================
+   CONCERN SELECTION
+   ========================================================= */
+
+.choice-screen {
+  min-height: 100vh;
+  padding: 140px 7vw 100px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+}
+
+
+/* ---------------------------------------------------------
+   SECTION INTRO
+--------------------------------------------------------- */
+
+.section-intro {
+  max-width: 700px;
+  margin-bottom: 70px;
+}
+
+.section-intro .eyebrow {
+  margin-bottom: 24px;
+}
+
+.section-intro h2 {
+  margin: 0;
+
+  font-size: clamp(48px, 6vw, 86px);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+
+.section-intro h2 span {
+  color: var(--gold);
+}
+
+.section-intro p {
+  margin-top: 28px;
+
+  color: var(--text-soft);
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   CONCERN GRID
+--------------------------------------------------------- */
+
+.concern-grid {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 12px;
+
+  width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   CONCERN CARD
+--------------------------------------------------------- */
+
+.concern-card {
+  position: relative;
+
+  min-height: 340px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px;
+
+  text-align: left;
+
+  color: var(--text);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.035),
+      rgba(255,255,255,0.012)
+    );
+
+  border: 1px solid rgba(255,255,255,0.07);
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.6s var(--ease),
+    opacity 0.5s ease,
+    border-color 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.5s ease;
+
+  animation:
+    concernEnter 0.8s var(--ease) both;
+
+  animation-delay: var(--delay);
+}
+
+.concern-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(217,180,91,0.4);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(217,180,91,0.06),
+      rgba(255,255,255,0.015)
+    );
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.35);
+}
+
+
+/* ---------------------------------------------------------
+   CARD TOP
+--------------------------------------------------------- */
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-number {
+  color: #45423e;
+
+  font-family:
+    "DM Mono",
+    "Courier New",
+    monospace;
+
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
+
+.card-tag {
+  color: #48443e;
+
+  font-family:
+    "DM Mono",
+    "Courier New",
+    monospace;
+
+  font-size: 8px;
+  letter-spacing: 0.14em;
+
+  transition: color 0.35s ease;
+}
+
+.concern-card:hover .card-tag,
+.concern-card.is-active .card-tag {
+  color: var(--gold);
+}
+
+
+/* ---------------------------------------------------------
+   ICON
+--------------------------------------------------------- */
+
+.card-icon {
+  width: 58px;
+  height: 58px;
+
+  margin-top: auto;
+  margin-bottom: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(217,180,91,0.13);
+
+  border-radius: 50%;
+
+  color: var(--gold);
+
+  background:
+    rgba(217,180,91,0.025);
+
+  font-size: 20px;
+
+  transition:
+    transform 0.55s var(--ease),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.concern-card:hover .card-icon,
+.concern-card.is-active .card-icon {
+  transform: scale(1.12);
+
+  border-color:
+    rgba(217,180,91,0.55);
+
+  box-shadow:
+    0 0 35px rgba(217,180,91,0.08);
+}
+
+
+/* ---------------------------------------------------------
+   CARD CONTENT
+--------------------------------------------------------- */
+
+.card-content h3 {
+  margin: 0;
+
+  font-size: 17px;
+
+  font-weight: 400;
+
+  letter-spacing: -0.02em;
+
+  transition:
+    transform 0.5s var(--ease),
+    color 0.35s ease;
+}
+
+.concern-card:hover .card-content h3 {
+  color: var(--gold);
+
+  transform: translateX(5px);
+}
+
+.card-content p {
+  margin-top: 10px;
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   ARROW
+--------------------------------------------------------- */
+
+.card-arrow {
+  position: absolute;
+
+  right: 22px;
+  bottom: 23px;
+
+  color: #48443e;
+
+  font-size: 17px;
+
+  transition:
+    color 0.35s ease,
+    transform 0.45s var(--ease);
+}
+
+.concern-card:hover .card-arrow {
+  color: var(--gold);
+
+  transform:
+    translate(4px, -4px);
+}
+
+
+/* ---------------------------------------------------------
+   PROGRESS LINE
+--------------------------------------------------------- */
+
+.card-progress {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 2px;
+
+  background: rgba(255,255,255,0.04);
+}
+
+.card-progress span {
+  display: block;
+
+  width: 0;
+  height: 100%;
+
+  background: var(--gold);
+
+  transition:
+    width 0.6s var(--ease);
+}
+
+.concern-card:hover .card-progress span,
+.concern-card.is-active .card-progress span {
+  width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   FOCUS STATE
+--------------------------------------------------------- */
+
+.concern-grid.has-focus
+.concern-card:not(.is-active) {
+  opacity: 0.38;
+
+  transform: scale(0.97);
+
+  filter: saturate(0.45);
+}
+
+.concern-grid.has-focus
+.concern-card.is-active {
+  opacity: 1;
+
+  transform:
+    translateY(-12px)
+    scale(1.015);
+
+  border-color:
+    rgba(217,180,91,0.65);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,0.45),
+    0 0 50px rgba(217,180,91,0.05);
+}
+
+
+/* ---------------------------------------------------------
+   HOVER LIGHT
+--------------------------------------------------------- */
+
+.concern-grid::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -80px;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at var(--mouse-x, 50%)
+      var(--mouse-y, 50%),
+      rgba(217,180,91,0.07),
+      transparent 20%
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.5s ease;
+}
+
+.concern-grid.has-focus::before {
+  opacity: 1;
+}
+
+
+/* ---------------------------------------------------------
+   ENTRANCE
+--------------------------------------------------------- */
+
+@keyframes concernEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(30px);
+
+    filter: blur(6px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+    filter: blur(0);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .concern-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .concern-card {
+    min-height: 300px;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .choice-screen {
+    padding:
+      120px
+      24px
+      80px;
+  }
+
+  .section-intro {
+    margin-bottom: 45px;
+  }
+
+  .section-intro h2 {
+    font-size: 48px;
+  }
+
+  .concern-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .concern-card {
+    min-height: 250px;
+  }
+
+  .card-icon {
+    margin-top: 45px;
+    margin-bottom: 25px;
+  }
+}
