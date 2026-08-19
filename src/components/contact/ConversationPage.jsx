@@ -4,6 +4,16 @@ import "./ConversationPage.css";
 function ConversationPage() {
   const [selectedInterest, setSelectedInterest] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  phone: "",
+  city: "",
+  message: "",
+  organisation: "",
+  role: "",
+  protection: "",
+});
 
   const formRef = useRef(null);
 
@@ -77,34 +87,57 @@ function ConversationPage() {
             <div className="form-field">
               <label>PHONE NUMBER</label>
               <input
-                type="tel"
-                placeholder="+91"
-                required
-              />
+  type="tel"
+  placeholder="+91"
+  value={formData.phone}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      phone: e.target.value,
+    })
+  }
+  required
+/>
             </div>
 
             <div className="form-field">
               <label>CITY</label>
               <input
-                type="text"
-                placeholder="Your city"
-                required
-              />
+  type="text"
+  placeholder="Your city"
+  value={formData.city}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      city: e.target.value,
+    })
+  }
+  required
+/>
             </div>
 
             <div className="form-field full-width">
               <label>WHAT ARE YOU PROTECTING?</label>
 
-              <select required>
-                <option value="">
-                  Select an option
-                </option>
+              <select
+  value={formData.protection}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      protection: e.target.value,
+    })
+  }
+  required
+>
+  <option value="">
+    Select an option
+  </option>
 
-                <option>Home</option>
-                <option>Family</option>
-                <option>Business</option>
-                <option>Other</option>
-              </select>
+  <option value="Home">Home</option>
+  <option value="Family">Family</option>
+  <option value="Business">Business</option>
+  <option value="Other">Other</option>
+</select>
             </div>
           </>
         );
@@ -115,10 +148,17 @@ function ConversationPage() {
             <label>WHAT WOULD YOU LIKE TO KNOW?</label>
 
             <textarea
-              rows="5"
-              placeholder="Tell us what you'd like to explore."
-              required
-            />
+  rows="5"
+  placeholder="Tell us what you'd like to explore."
+  value={formData.message}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      message: e.target.value,
+    })
+  }
+  required
+/>
           </div>
         );
 
@@ -129,29 +169,50 @@ function ConversationPage() {
               <label>ORGANISATION</label>
 
               <input
-                type="text"
-                placeholder="Company or organisation name"
-                required
-              />
+  type="text"
+  placeholder="Company or organisation name"
+  value={formData.organisation}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      organisation: e.target.value,
+    })
+  }
+  required
+/>
             </div>
 
             <div className="form-field">
               <label>YOUR ROLE</label>
 
               <input
-                type="text"
-                placeholder="Your role"
-              />
+  type="text"
+  placeholder="Your role"
+  value={formData.role}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      role: e.target.value,
+    })
+  }
+/>
             </div>
 
             <div className="form-field full-width">
               <label>HOW WOULD YOU LIKE TO PARTNER?</label>
 
               <textarea
-                rows="5"
-                placeholder="Tell us about your idea."
-                required
-              />
+  rows="5"
+  placeholder="Tell us about your idea."
+  value={formData.message}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      message: e.target.value,
+    })
+  }
+  required
+/>
             </div>
           </>
         );
@@ -162,10 +223,17 @@ function ConversationPage() {
             <label>YOUR QUESTION</label>
 
             <textarea
-              rows="5"
-              placeholder="Ask us anything."
-              required
-            />
+  rows="5"
+  placeholder="Ask us anything."
+  value={formData.message}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      message: e.target.value,
+    })
+  }
+  required
+/>
           </div>
         );
 
@@ -296,10 +364,17 @@ function ConversationPage() {
                   <label>FULL NAME</label>
 
                   <input
-                    type="text"
-                    placeholder="Your name"
-                    required
-                  />
+  type="text"
+  placeholder="Your name"
+  value={formData.name}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      name: e.target.value,
+    })
+  }
+  required
+/>
                 </div>
 
 
@@ -307,10 +382,17 @@ function ConversationPage() {
                   <label>EMAIL ADDRESS</label>
 
                   <input
-                    type="email"
-                    placeholder="you@example.com"
-                    required
-                  />
+  type="email"
+  placeholder="you@example.com"
+  value={formData.email}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      email: e.target.value,
+    })
+  }
+  required
+/>
                 </div>
 
 
