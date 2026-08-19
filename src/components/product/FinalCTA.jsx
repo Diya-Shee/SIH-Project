@@ -1,4 +1,4 @@
-function FinalCTA() {
+function FinalCTA({ onStartConversation }) {
   return (
     <section 
         id="contact"
@@ -21,9 +21,12 @@ function FinalCTA() {
         Be ready to respond.
       </p>
 
-      <button className="cta-button">
-        Start a conversation →
-      </button>
+      <button
+  className="cta-button"
+  onClick={onStartConversation}
+>
+  Start a conversation →
+</button>
     </section>
   );
 }
