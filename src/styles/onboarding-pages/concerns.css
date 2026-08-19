@@ -218,7 +218,7 @@
 .card-content h3 {
   margin: 0;
 
-  font-size: 17px;
+  font-size: 21px;
 
   font-weight: 400;
 
@@ -240,7 +240,7 @@
 
   color: var(--text-muted);
 
-  font-size: 11px;
+  font-size: 13px;
 
   line-height: 1.6;
 }

@@ -16,6 +16,9 @@
     80px;
 
   overflow: hidden;
+
+  background: #080807;
+  isolation: isolate;
 }
 
 
@@ -54,6 +57,102 @@
     );
 }
 
+/* ---------------------------------------------------------
+   BACKGROUND ATMOSPHERE
+--------------------------------------------------------- */
+
+.intro-glow {
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(217, 180, 91, 0.07),
+      transparent 68%
+    );
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+.intro-noise {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.025;
+
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(
+      rgba(255, 255, 255, 0.8) 0.5px,
+      transparent 0.5px
+    );
+
+  background-size: 4px 4px;
+
+  z-index: 1;
+}
+
+
+/* ---------------------------------------------------------
+   SYSTEM STATUS
+--------------------------------------------------------- */
+
+.system-status {
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--text-muted);
+
+  font-family:
+    "DM Mono",
+    "Courier New",
+    monospace;
+
+  font-size: 15px;
+
+  letter-spacing: 0.16em;
+
+  white-space: nowrap;
+}
+
+
+/* PAGE COUNTER — RIGHT CORNER */
+
+.system-index {
+  position: absolute;
+
+  right: 24px;
+
+  color: var(--text-muted);
+
+  font-family:
+    "DM Mono",
+    "Courier New",
+    monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 0.16em;
+}
 
 /* ---------------------------------------------------------
    CONTENT
@@ -73,13 +172,18 @@
    EYEBROW
 --------------------------------------------------------- */
 
-.intro-content .eyebrow {
-  margin-bottom: 34px;
+.intro-content .eyebrow 
+.eyebrow-line {
+  display: inline-block;
 
-  opacity: 0;
+  width: 24px;
+  height: 1px;
 
-  animation:
-    introFadeUp 1s var(--ease) 0.2s forwards;
+  margin-right: 10px;
+
+  vertical-align: middle;
+
+  background: var(--gold);
 }
 
 
@@ -110,28 +214,6 @@
 }
 
 
-/* ---------------------------------------------------------
-   DESCRIPTION
---------------------------------------------------------- */
-
-.hero-description {
-  max-width: 500px;
-
-  margin-top: 42px;
-
-  color: var(--text-soft);
-
-  font-size: 15px;
-
-  line-height: 1.8;
-
-  letter-spacing: 0.01em;
-
-  opacity: 0;
-
-  animation:
-    introFadeUp 1s var(--ease) 0.7s forwards;
-}
 
 
 /* ---------------------------------------------------------
@@ -157,7 +239,7 @@
     "Courier New",
     monospace;
 
-  font-size: 8px;
+  font-size: 17px;
 
   letter-spacing: 0.2em;
 }
@@ -166,29 +248,65 @@
 /* ---------------------------------------------------------
    BEGIN BUTTON
 --------------------------------------------------------- */
-
 .begin-button {
-  width: 245px;
+  width: 260px;
 
-  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 7px 8px 7px 20px;
 
   color: var(--text);
 
-  border-color:
+  border: 1px solid
     rgba(217, 180, 91, 0.25);
 
   background:
     rgba(217, 180, 91, 0.025);
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.4s var(--ease),
+    background 0.4s var(--ease),
+    transform 0.4s var(--ease);
 }
 
-.begin-button span:first-child {
-  font-size: 12px;
+.begin-button:hover {
+  border-color:
+    rgba(217, 180, 91, 0.8);
+
+  background:
+    rgba(217, 180, 91, 0.08);
+
+  transform: translateY(-2px);
+}
+
+.button-text {
+  font-size: 14px;
 
   letter-spacing: 0.04em;
 }
 
+.button-circle {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  transition:
+    transform 0.4s var(--ease);
+}
+
 .begin-button .arrow {
-  color: var(--gold);
+  color: #050505;
 
   font-size: 18px;
 
@@ -196,28 +314,16 @@
     transform 0.4s var(--ease);
 }
 
-.begin-button:hover .arrow {
-  color: #050505;
-
-  transform: translateX(6px);
+.begin-button:hover .button-circle {
+  transform: rotate(-15deg);
 }
 
+.begin-button:hover .arrow {
+  transform: translateX(3px);
+}
 
-/* ---------------------------------------------------------
-   META
---------------------------------------------------------- */
-
-.intro-meta {
-  position: absolute;
-
-  right: 7vw;
-  bottom: 42px;
-
-  z-index: 2;
-
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
+.interaction-note {
+  margin-top: 12px;
 
   color: #3e3b37;
 
@@ -226,13 +332,25 @@
     "Courier New",
     monospace;
 
-  font-size: 8px;
+  font-size: 7px;
 
   letter-spacing: 0.16em;
-
-  text-align: right;
 }
 
+
+/* ---------------------------------------------------------
+   META
+--------------------------------------------------------- */
+
+.meta-divider {
+  width: 30px;
+  height: 1px;
+
+  margin-left: auto;
+
+  background:
+    rgba(217, 180, 91, 0.35);
+}
 
 /* ---------------------------------------------------------
    SCROLL / EXPERIENCE HINT
@@ -257,7 +375,7 @@
     "Courier New",
     monospace;
 
-  font-size: 7px;
+  font-size: 14px;
 
   letter-spacing: 0.18em;
 
@@ -356,6 +474,21 @@
   }
 }
 
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.2);
+  }
+}
+
 
 /* ---------------------------------------------------------
    MOBILE
@@ -401,4 +534,23 @@
 
     background-size: 50% 25%;
   }
+
+  .system-status {
+  left: 50%;
+  transform: translateX(-50%);
+}
+}
+
+
+.screen-coordinates {
+  display: none;
+}
+
+.intro-glow {
+  width: 400px;
+  height: 400px;
+}
+
+.desktop-break {
+  display: none;
 }
