@@ -224,6 +224,13 @@ const goBack = () => {
                   behavior: "smooth",
                 })
             }
+            onRequestInfo={() =>
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                })
+            }
           />
 
           <Capabilities />
