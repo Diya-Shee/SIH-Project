@@ -920,3 +920,41 @@
     max-width: 300px;
   }
 }
+
+.problem-screen .back-button {
+  position: fixed;
+
+  top: 55px;
+  left: 7vw;
+
+  z-index: 100000;
+
+  display: inline-flex;
+  align-items: center;
+
+  background: transparent;
+  border: none;
+
+  color: #6f6a63;
+
+  font-family:
+    "DM Mono",
+    "Courier New",
+    monospace;
+
+  font-size: 9px;
+  letter-spacing: 0.16em;
+
+  cursor: pointer;
+
+  padding: 8px 0;
+
+  transition:
+    color 0.3s ease,
+    transform 0.4s var(--ease);
+}
+
+.problem-screen .back-button:hover {
+  color: var(--gold);
+  transform: translateX(-4px);
+}

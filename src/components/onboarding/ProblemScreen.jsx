@@ -1,9 +1,18 @@
 function ProblemScreen({
   scenarioChoice,
   onContinue,
+  onBack,
 }) {
   return (
     <section className="problem-screen">
+      
+      <button
+        className="back-button"
+        onClick={onBack}
+      >
+        ← BACK
+      </button>
+
       <div className="problem-grid" />
 
       <div className="problem-content">

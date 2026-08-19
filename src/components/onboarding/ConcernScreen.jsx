@@ -5,9 +5,18 @@ function ConcernScreen({
   onHover,
   onLeave,
   onSelect,
+  onBack,
 }) {
   return (
     <section className="experience-screen choice-screen">
+
+      <button
+      className="back-button"
+        onClick={onBack}
+      >
+         ← BACK
+      </button>
+
       <div className="section-intro">
         <div className="eyebrow">
           01 / YOUR CONCERN

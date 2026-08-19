@@ -1,6 +1,8 @@
 function FinalCTA() {
   return (
-    <section className="final-cta">
+    <section 
+        id="contact"
+        className="final-cta">
       <div className="cta-glow" />
 
       <div className="eyebrow">
