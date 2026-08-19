@@ -1,6 +1,6 @@
 import "./Navbar.css";
 
-function Navbar({ onHome }) {
+function Navbar({ onHome, onBack }) {
   const scrollToSection = (id) => {
     document
       .getElementById(id)
@@ -12,34 +12,45 @@ function Navbar({ onHome }) {
   return (
     <nav className="navbar">
 
-      <button
-        className="navbar-logo"
-        onClick={onHome}
-      >
-        VAJRA<span>®</span>
-      </button>
+  <div className="navbar-left">
 
-      <div className="navbar-links">
+    <button
+      className="navbar-logo"
+      onClick={onHome}
+    >
+      VAJRA<span>®</span>
+    </button>
 
-        <button onClick={() => scrollToSection("capabilities")}>
-          CAPABILITIES
-        </button>
+    <button
+      className="navbar-back"
+      onClick={onBack}
+    >
+      ← BACK
+    </button>
 
-        <button onClick={() => scrollToSection("live-system")}>
-          LIVE SYSTEM
-        </button>
+  </div>
 
-        <button onClick={() => scrollToSection("deployment")}>
-          DEPLOYMENT
-        </button>
+  <div className="navbar-links">
 
-        <button onClick={() => scrollToSection("contact")}>
-          CONTACT
-        </button>
+    <button onClick={() => scrollToSection("capabilities")}>
+      CAPABILITIES
+    </button>
 
-      </div>
+    <button onClick={() => scrollToSection("live-system")}>
+      LIVE SYSTEM
+    </button>
 
-    </nav>
+    <button onClick={() => scrollToSection("deployment")}>
+      DEPLOYMENT
+    </button>
+
+    <button onClick={() => scrollToSection("contact")}>
+      CONTACT
+    </button>
+
+  </div>
+
+</nav>
   );
 }
 

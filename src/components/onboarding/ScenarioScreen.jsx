@@ -3,6 +3,7 @@ import { scenarios } from "../../data/experienceData";
 function ScenarioScreen({
   concern,
   onSelectScenario,
+  onBack,
 }) {
   const currentScenario = concern
     ? scenarios[concern.id]
@@ -14,6 +15,14 @@ function ScenarioScreen({
 
   return (
     <section className="experience-screen scenario-screen">
+      
+      <button
+        className="back-button"
+        onClick={onBack}
+      >
+        ← BACK
+      </button>
+
       <div className="scenario-content">
 
         <div className="scenario-topline">

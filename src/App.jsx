@@ -51,6 +51,29 @@ function App() {
     setStage("problem");
   };
 
+  /* -------------------------------------------------------
+   BACK NAVIGATION
+------------------------------------------------------- */
+
+const goBack = () => {
+  if (stage === "concerns") {
+    setStage("intro");
+  }
+
+  else if (stage === "scenario") {
+    setScenarioChoice(null);
+    setStage("concerns");
+  }
+
+  else if (stage === "problem") {
+    setScenarioChoice(null);
+    setStage("scenario");
+  }
+
+  else if (stage === "reveal") {
+    setStage("problem");
+  }
+};
 
   /* -------------------------------------------------------
      RESET
@@ -76,15 +99,11 @@ function App() {
 
   const enterSystem = () => {
     setStage("experience");
-
-    setTimeout(() => {
-      document
-        .getElementById("capabilities")
-        ?.scrollIntoView({
-          behavior: "smooth",
-        });
-    }, 250);
-  };
+     window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
 
 
   /* -------------------------------------------------------
@@ -146,6 +165,7 @@ function App() {
             setHoveredConcern(null)
           }
           onSelect={selectConcern}
+          onBack={goBack}
         />
       )}
 
@@ -154,6 +174,7 @@ function App() {
         <ScenarioScreen
           concern={concern}
           onSelectScenario={selectScenario}
+          onBack={goBack}
         />
       )}
 
@@ -164,6 +185,7 @@ function App() {
           onContinue={() =>
             setStage("reveal")
           }
+          onBack={goBack}
         />
       )}
 
@@ -192,6 +214,7 @@ function App() {
                 behavior: "smooth",
               });
             }}
+            onBack={()=> setStage("reveal")}
           />
           <ProductHero
             onExplore={() =>

@@ -35,6 +35,56 @@
 
 
 /* ---------------------------------------------------------
+   LEFT SIDE
+--------------------------------------------------------- */
+
+.navbar-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+}
+
+
+/* ---------------------------------------------------------
+   BACK
+--------------------------------------------------------- */
+
+.navbar-back {
+  padding: 8px 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #6f6a63;
+
+  font-family:
+    "DM Mono",
+    "Courier New",
+    monospace;
+
+  font-size: 15px;
+
+  letter-spacing: 0.16em;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    transform 0.4s var(--ease);
+}
+
+.navbar-back:hover {
+  color: var(--gold);
+
+  transform:
+    translateX(-4px);
+}
+
+
+/* ---------------------------------------------------------
    LOGO
 --------------------------------------------------------- */
 
@@ -74,7 +124,7 @@
 
   color: var(--gold);
 
-  font-size: 8px;
+  font-size: 10px;
 }
 
 .navbar-logo:hover {
@@ -113,7 +163,7 @@
     "Courier New",
     monospace;
 
-  font-size: 8px;
+  font-size: 15px;
 
   letter-spacing: 0.14em;
 
@@ -170,6 +220,16 @@
       0 20px;
   }
 
+  .navbar-left {
+    gap: 16px;
+  }
+
+  .navbar-back {
+    font-size: 9px;
+
+    letter-spacing: 0.10em;
+  }
+
   .navbar-links {
     gap: 15px;
   }
@@ -183,22 +243,34 @@
 }
 
 
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
 @media (max-width: 520px) {
 
   .navbar {
-    justify-content: center;
+    justify-content: space-between;
+  }
+
+  .navbar-left {
+    gap: 12px;
   }
 
   .navbar-logo {
-    position: absolute;
+    position: static;
 
-    left: 20px;
+    font-size: 18px;
+  }
+
+  .navbar-back {
+    font-size: 8px;
   }
 
   .navbar-links {
-    margin-left: 60px;
+    margin-left: 0;
 
-    gap: 12px;
+    gap: 10px;
   }
 
   .navbar-links button {
@@ -206,6 +278,7 @@
   }
 
 }
+
 
 .product-site section {
   scroll-margin-top: 20px;
