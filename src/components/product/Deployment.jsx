@@ -19,7 +19,9 @@ const deploymentOptions = [
 
 function Deployment() {
   return (
-    <section className="deployment-section">
+    <section 
+        id="deployment"
+        className="deployment-section">
       <div className="eyebrow">
         03 / DEPLOYMENT
       </div>

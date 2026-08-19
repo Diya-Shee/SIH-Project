@@ -409,6 +409,10 @@
 
 
 @media (max-width: 700px) {
+    .back-button {
+    top: 28px;
+    left: 24px;
+  }
   .choice-screen {
     padding:
       120px
@@ -436,4 +440,49 @@
     margin-top: 45px;
     margin-bottom: 25px;
   }
+}
+
+/* ---------------------------------------------------------
+   BACK NAVIGATION
+--------------------------------------------------------- */
+
+.back-button {
+  position: fixed;
+
+  top: 25px;
+  left: 7vw;
+
+  z-index: 1000;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 0;
+
+  background: transparent;
+  border: none;
+
+  color: #6f6a63;
+
+  font-family:
+    "DM Mono",
+    "Courier New",
+    monospace;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  letter-spacing: 0.16em;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    transform 0.4s var(--ease);
+}
+
+.back-button:hover {
+  color: var(--gold);
+  transform: translateX(-4px);
 }

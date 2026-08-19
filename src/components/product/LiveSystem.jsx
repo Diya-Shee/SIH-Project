@@ -1,6 +1,8 @@
 function LiveSystem() {
   return (
-    <section className="live-section">
+    <section 
+        id="live-system"
+        className="live-section">
       {/* SYSTEM DESCRIPTION */}
 
       <div className="live-copy">
