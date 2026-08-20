@@ -20,6 +20,7 @@ import LiveSystem from "./components/product/LiveSystem";
 import Deployment from "./components/product/Deployment";
 import FinalCTA from "./components/product/FinalCTA";
 import Footer from "./components/product/Footer";
+import ConversationPage from "./components/contact/ConversationPage";
 
 function App() {
   const [stage, setStage] = useState("intro");
@@ -238,13 +239,19 @@ const goBack = () => {
           <LiveSystem />
 
           <Deployment />
-
-          <FinalCTA />
+<FinalCTA
+  onStartConversation={() =>
+    setStage("contact")
+  }
+/>
 
           <Footer />
 
         </div>
       )}
+      {stage === "contact" && (
+  <ConversationPage />
+)}
 
     </main>
   );
