@@ -6,36 +6,40 @@ export const concerns = [
   {
     id: "intrusion",
     icon: "◉",
-    title: "Someone entering",
-    subtitle: "You don't know who's there.",
+    title: "An unexpected presence",
+    subtitle: "Someone is there. You don't know why.",
     tag: "SECURITY",
   },
+
   {
     id: "incident",
     icon: "△",
-    title: "Something going wrong",
-    subtitle: "Fire. Smoke. An unexpected event.",
+    title: "When something feels wrong",
+    subtitle: "Smoke. Fire. Or something you didn't expect.",
     tag: "INCIDENT",
   },
+
   {
     id: "family",
     icon: "○",
-    title: "Family",
-    subtitle: "You want to know they're safe.",
-    tag: "PEOPLE",
+    title: "Someone who may need help",
+    subtitle: "A child. An elder. Someone you care about.",
+    tag: "CARE",
   },
+
   {
     id: "pets",
     icon: "⌁",
-    title: "Pets",
-    subtitle: "They're home. You're not.",
-    tag: "CARE",
+    title: "Someone who depends on you",
+    subtitle: "They're home. And they can't tell you what's wrong.",
+    tag: "DEPENDENTS",
   },
+
   {
     id: "unknown",
     icon: "?",
-    title: "Not knowing",
-    subtitle: "The uncertainty is the problem.",
+    title: "When you don't know what's happening",
+    subtitle: "Everything seems normal. But you can't be sure.",
     tag: "AWARENESS",
   },
 ];

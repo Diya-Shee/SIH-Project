@@ -3,21 +3,21 @@ const capabilities = [
     number: "01",
     title: "PERCEIVE",
     description:
-      "Understand the environment through sensors and real-time observation.",
+      "Continuously sense, observe, and understand what is happening around you.",
     icon: "◎",
   },
   {
     number: "02",
     title: "DECIDE",
     description:
-      "Evaluate situations and determine when something requires attention.",
+      "Analyse real-time situations and determine when attention or action is required.",
     icon: "◇",
   },
   {
     number: "03",
     title: "RESPOND",
     description:
-      "Move beyond passive monitoring with autonomous physical response.",
+      "Move beyond alerts with intelligent, autonomous physical response.",
     icon: "↯",
   },
 ];
@@ -34,11 +34,12 @@ function Capabilities() {
             01 / CORE INTELLIGENCE
           </div>
 
-          <h2>
-            THREE THINGS.
-            <br />
-            <span>ONE SYSTEM.</span>
-          </h2>
+         <h2>
+          SEE.
+          THINK.
+           <br />
+           <span>ACT.</span>
+         </h2>
         </div>
 
         <p>
