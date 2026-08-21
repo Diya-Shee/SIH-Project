@@ -17,7 +17,7 @@
 
   perspective: 1200px;
 
-  z-index: 100;
+  
 }
 
 
@@ -29,13 +29,13 @@
    BACK BUTTON
 --------------------------------------------------------- */
 
-.reveal-screen .reveal-back-button {
+.reveal-back-button {
   position: fixed;
 
   top: 22px;
   left: 7vw;
 
-  z-index: 999999;
+  z-index: 99999;
 
   display: inline-flex;
   align-items: center;
@@ -74,7 +74,7 @@
     transform 0.4s var(--ease);
 }
 
-.reveal-screen .reveal-back-button:hover {
+.reveal-back-button:hover {
   color: var(--gold);
   transform: translateX(-4px);
 }

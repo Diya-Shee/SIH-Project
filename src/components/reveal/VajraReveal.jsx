@@ -2,14 +2,15 @@ import vajraImage from "../../assets/vajra.png";
 
 function VajraReveal({ onEnterSystem, onBack }) {
   return (
-    <section className="reveal-screen">
-      
+    <>
       <button
         className="reveal-back-button"
         onClick={onBack}
       >
         ← BACK
       </button>
+
+      <section className="reveal-screen">
 
       <div className="reveal-grid" />
 
@@ -79,7 +80,8 @@ function VajraReveal({ onEnterSystem, onBack }) {
         </button>
 
       </div>
-    </section>
+       </section>
+    </>
   );
 }
 
