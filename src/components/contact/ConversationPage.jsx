@@ -1,19 +1,21 @@
 import { useRef, useState } from "react";
 import "./ConversationPage.css";
+import Navbar from "../navigation/Navbar";
 
-function ConversationPage() {
+function ConversationPage({ onBack }) {
   const [selectedInterest, setSelectedInterest] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+
   const [formData, setFormData] = useState({
-  name: "",
-  email: "",
-  phone: "",
-  city: "",
-  message: "",
-  organisation: "",
-  role: "",
-  protection: "",
-});
+    name: "",
+    email: "",
+    phone: "",
+    city: "",
+    message: "",
+    organisation: "",
+    role: "",
+    protection: "",
+  });
 
   const formRef = useRef(null);
 
@@ -126,64 +128,65 @@ function ConversationPage() {
 };
   const renderDynamicFields = () => {
     switch (selectedInterest) {
-
       case "reserve":
         return (
           <>
             <div className="form-field">
               <label>PHONE NUMBER</label>
+
               <input
-  type="tel"
-  placeholder="+91"
-  value={formData.phone}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      phone: e.target.value,
-    })
-  }
-  required
-/>
+                type="tel"
+                placeholder="+91"
+                value={formData.phone}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    phone: e.target.value,
+                  })
+                }
+                required
+              />
             </div>
 
             <div className="form-field">
               <label>CITY</label>
+
               <input
-  type="text"
-  placeholder="Your city"
-  value={formData.city}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      city: e.target.value,
-    })
-  }
-  required
-/>
+                type="text"
+                placeholder="Your city"
+                value={formData.city}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    city: e.target.value,
+                  })
+                }
+                required
+              />
             </div>
 
             <div className="form-field full-width">
               <label>WHAT ARE YOU PROTECTING?</label>
 
               <select
-  value={formData.protection}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      protection: e.target.value,
-    })
-  }
-  required
->
-  <option value="">
-    Select an option
-  </option>
+                value={formData.protection}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    protection: e.target.value,
+                  })
+                }
+                required
+              >
+                <option value="">
+                  Select an option
+                </option>
 
-  <option value="Home">Home</option>
-  <option value="Family">Family</option>
-  <option value="Business">Business</option>
-  <option value="Other">Other</option>
-</select>
+                <option value="Home">Home</option>
+                <option value="Family">Family</option>
+                <option value="Business">Business</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
           </>
         );
@@ -194,17 +197,17 @@ function ConversationPage() {
             <label>WHAT WOULD YOU LIKE TO KNOW?</label>
 
             <textarea
-  rows="5"
-  placeholder="Tell us what you'd like to explore."
-  value={formData.message}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      message: e.target.value,
-    })
-  }
-  required
-/>
+              rows="5"
+              placeholder="Tell us what you'd like to explore."
+              value={formData.message}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  message: e.target.value,
+                })
+              }
+              required
+            />
           </div>
         );
 
@@ -215,50 +218,51 @@ function ConversationPage() {
               <label>ORGANISATION</label>
 
               <input
-  type="text"
-  placeholder="Company or organisation name"
-  value={formData.organisation}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      organisation: e.target.value,
-    })
-  }
-  required
-/>
+                type="text"
+                placeholder="Company or organisation name"
+                value={formData.organisation}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    organisation: e.target.value,
+                  })
+                }
+                required
+              />
             </div>
 
             <div className="form-field">
               <label>YOUR ROLE</label>
 
               <input
-  type="text"
-  placeholder="Your role"
-  value={formData.role}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      role: e.target.value,
-    })
-  }
-/>
+                type="text"
+                placeholder="Your role"
+                value={formData.role}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    role: e.target.value,
+                  })
+                }
+                required
+              />
             </div>
 
             <div className="form-field full-width">
               <label>HOW WOULD YOU LIKE TO PARTNER?</label>
 
               <textarea
-  rows="5"
-  placeholder="Tell us about your idea."
-  value={formData.message}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      message: e.target.value,
-    })
-  }
-  required
-/>
+                rows="5"
+                placeholder="Tell us about your idea."
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    message: e.target.value,
+                  })
+                }
+                required
+              />
             </div>
           </>
         );
@@ -269,17 +273,17 @@ function ConversationPage() {
             <label>YOUR QUESTION</label>
 
             <textarea
-  rows="5"
-  placeholder="Ask us anything."
-  value={formData.message}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      message: e.target.value,
-    })
-  }
-  required
-/>
+              rows="5"
+              placeholder="Ask us anything."
+              value={formData.message}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  message: e.target.value,
+                })
+              }
+              required
+            />
           </div>
         );
 
@@ -310,6 +314,16 @@ function ConversationPage() {
   return (
     <main className="conversation-page">
 
+      <Navbar
+        onHome={() =>
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          })
+        }
+        onBack={onBack}
+      />
+
       <section className="conversation-hero">
 
         <div className="eyebrow">
@@ -330,7 +344,6 @@ function ConversationPage() {
         </p>
 
       </section>
-
 
       <section className="interest-section">
 
@@ -376,7 +389,6 @@ function ConversationPage() {
 
       </section>
 
-
       {selectedInterest && (
         <section
           className="conversation-form-section"
@@ -400,7 +412,6 @@ function ConversationPage() {
 
               </div>
 
-
               <form
                 className="conversation-form"
                 onSubmit={handleSubmit}
@@ -410,40 +421,37 @@ function ConversationPage() {
                   <label>FULL NAME</label>
 
                   <input
-  type="text"
-  placeholder="Your name"
-  value={formData.name}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      name: e.target.value,
-    })
-  }
-  required
-/>
+                    type="text"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        name: e.target.value,
+                      })
+                    }
+                    required
+                  />
                 </div>
-
 
                 <div className="form-field">
                   <label>EMAIL ADDRESS</label>
 
                   <input
-  type="email"
-  placeholder="you@example.com"
-  value={formData.email}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      email: e.target.value,
-    })
-  }
-  required
-/>
+                    type="email"
+                    placeholder="you@example.com"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        email: e.target.value,
+                      })
+                    }
+                    required
+                  />
                 </div>
 
-
                 {renderDynamicFields()}
-
 
                 <button
                   type="submit"
