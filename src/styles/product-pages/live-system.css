@@ -107,7 +107,7 @@
     "Courier New",
     monospace;
 
-  font-size: 7px;
+  font-size: 12px;
 
   letter-spacing: 0.16em;
 }
@@ -120,7 +120,7 @@
     "Courier New",
     monospace;
 
-  font-size: 8px;
+  font-size: 12px;
 
   font-weight: 400;
 
@@ -390,7 +390,7 @@
     "Courier New",
     monospace;
 
-  font-size: 7px;
+  font-size: 12px;
 
   letter-spacing: 0.16em;
 }
@@ -527,14 +527,14 @@
   }
 
   .radar-label {
-    font-size: 6px;
+    font-size: 11px;
   }
 
   .radar-center {
     width: 48px;
     height: 48px;
 
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .radar-point {

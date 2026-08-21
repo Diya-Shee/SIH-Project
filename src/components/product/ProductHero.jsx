@@ -1,6 +1,6 @@
 import vajraImage from "../../assets/vajra.png";
 
-function ProductHero({ onExplore }) {
+function ProductHero({ onExplore, onRequestInfo }) {
   return (
     <section className="product-hero">
       <div className="hero-ambient" />
@@ -28,7 +28,10 @@ function ProductHero({ onExplore }) {
             Explore VAJRA →
           </button>
 
-          <button className="ghost-button">
+          <button
+            className="ghost-button"
+            onClick={onRequestInfo}
+          >
             Request information
           </button>
         </div>

@@ -199,7 +199,7 @@
     "Courier New",
     monospace;
 
-  font-size: 9px;
+  font-size: 13px;
 
   letter-spacing: 0.16em;
 
@@ -426,7 +426,7 @@
   .capability-body p {
     max-width: 280px;
 
-    font-size: 11px;
+    font-size: 13px;
   }
 }
 
