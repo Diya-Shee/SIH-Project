@@ -4,7 +4,7 @@ const deploymentOptions = [
     text: "Monitor spaces when you're away.",
   },
   {
-    title: "FACILITIES",
+    title: "TRAVEL",
     text: "Extend security across large environments.",
   },
   {
@@ -12,7 +12,7 @@ const deploymentOptions = [
     text: "Add mobile intelligence to existing infrastructure.",
   },
   {
-    title: "INDUSTRY",
+    title: "OFFICE",
     text: "Monitor environments where awareness matters.",
   },
 ];

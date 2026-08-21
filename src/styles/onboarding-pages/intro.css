@@ -111,29 +111,21 @@
 
 .system-status {
   position: absolute;
-
   left: 50%;
-
   transform: translateX(-50%);
-
   display: flex;
   align-items: center;
   gap: 8px;
-
-  color: var(--text-muted);
-
+  color: #8a857d;
   font-family:
     "DM Mono",
     "Courier New",
     monospace;
-
   font-size: 15px;
-
+  font-weight: 600;
   letter-spacing: 0.16em;
-
   white-space: nowrap;
 }
-
 
 /* PAGE COUNTER — RIGHT CORNER */
 
@@ -231,39 +223,30 @@
 
 .question-label {
   margin-bottom: 14px;
-
-  color: var(--text-muted);
-
+  color: #8a857d;
   font-family:
     "DM Mono",
     "Courier New",
     monospace;
-
-  font-size: 12px;
-
+  font-size: 14px;
+  font-weight: 600;
   letter-spacing: 0.2em;
 }
-
 
 /* ---------------------------------------------------------
    BEGIN BUTTON
 --------------------------------------------------------- */
 .begin-button {
   width: 260px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 7px 8px 7px 20px;
-
   color: var(--text);
 
-  border: 1px solid
-    rgba(217, 180, 91, 0.25);
+  border: 1px solid rgba(217, 180, 91, 0.25);
 
-  background:
-    rgba(217, 180, 91, 0.025);
+  background: rgba(217, 180, 91, 0.025);
 
   cursor: pointer;
 
@@ -274,44 +257,21 @@
 }
 
 .begin-button:hover {
-  border-color:
-    rgba(217, 180, 91, 0.8);
+  border-color: rgba(217, 180, 91, 0.8);
 
-  background:
-    rgba(217, 180, 91, 0.08);
+  background: rgba(217, 180, 91, 0.08);
 
   transform: translateY(-2px);
 }
 
 .button-text {
   font-size: 14px;
-
   letter-spacing: 0.04em;
+  color: var(--text);
 }
 
-.button-circle {
-  width: 34px;
-  height: 34px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: var(--gold);
-
-  transition:
-    transform 0.4s var(--ease);
-}
-
-.begin-button .arrow {
-  color: #050505;
-
-  font-size: 18px;
-
-  transition:
-    transform 0.4s var(--ease);
+.begin-button:hover .button-text {
+  color: var(--text);
 }
 
 .begin-button:hover .button-circle {
@@ -324,16 +284,13 @@
 
 .interaction-note {
   margin-top: 12px;
-
-  color: #3e3b37;
-
+  color: #7a756d;
   font-family:
     "DM Mono",
     "Courier New",
     monospace;
-
-  font-size: 12px;
-
+  font-size: 14px;
+  font-weight: 600;
   letter-spacing: 0.16em;
 }
 
@@ -358,27 +315,20 @@
 
 .scroll-hint {
   position: absolute;
-
   left: 50%;
   bottom: 38px;
-
   transform: translateX(-50%);
-
   display: flex;
   align-items: center;
   gap: 14px;
-
-  color: #3d3a36;
-
+  color: #7a756d;
   font-family:
     "DM Mono",
     "Courier New",
     monospace;
-
-  font-size: 12px;
-
+  font-size: 14px;
+  font-weight: 600;
   letter-spacing: 0.18em;
-
   white-space: nowrap;
 }
 
