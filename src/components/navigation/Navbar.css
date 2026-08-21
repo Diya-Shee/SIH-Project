@@ -124,7 +124,7 @@
 
   color: var(--gold);
 
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .navbar-logo:hover {
@@ -225,7 +225,7 @@
   }
 
   .navbar-back {
-    font-size: 9px;
+    font-size: 13px;
 
     letter-spacing: 0.10em;
   }
@@ -235,7 +235,7 @@
   }
 
   .navbar-links button {
-    font-size: 7px;
+    font-size: 12px;
 
     letter-spacing: 0.08em;
   }
@@ -264,7 +264,7 @@
   }
 
   .navbar-back {
-    font-size: 8px;
+    font-size: 12px;
   }
 
   .navbar-links {
@@ -274,7 +274,7 @@
   }
 
   .navbar-links button {
-    font-size: 6px;
+    font-size: 11px;
   }
 
 }
