@@ -1,8 +1,16 @@
 import vajraImage from "../../assets/vajra.png";
 
-function VajraReveal({ onEnterSystem }) {
+function VajraReveal({ onEnterSystem, onBack }) {
   return (
     <section className="reveal-screen">
+      
+      <button
+        className="reveal-back-button"
+        onClick={onBack}
+      >
+        ← BACK
+      </button>
+
       <div className="reveal-grid" />
 
       <div className="reveal-light" />
