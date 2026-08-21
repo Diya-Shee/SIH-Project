@@ -54,6 +54,10 @@ function ConversationPage({ onBack }) {
     (interest) => interest.id === selectedInterest
   );
 
+  /* -------------------------------------------------------
+     INTEREST SELECTION
+  ------------------------------------------------------- */
+
   const handleInterestSelect = (id) => {
     setSelectedInterest(id);
     setSubmitted(false);
@@ -66,66 +70,72 @@ function ConversationPage({ onBack }) {
     }, 100);
   };
 
+  /* -------------------------------------------------------
+     FORM SUBMIT
+  ------------------------------------------------------- */
+
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const form = new FormData();
+    const data = {
+      interest: selectedInterest,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      city: formData.city,
+      message: formData.message,
+      organisation: formData.organisation,
+      role: formData.role,
+      protection: formData.protection,
+    };
 
-  form.append("name", formData.name);
-  form.append("email", formData.email);
-  form.append("_replyto", formData.email);
-  form.append(
-    "_subject",
-    `New VAJRA ${selectedData.title} Request`
-  );
+    try {
+      const response = await fetch(
+        "http://127.0.0.1:5000/api/contact",
+        {
+          method: "POST",
 
-  if (selectedInterest === "reserve") {
-    form.append("phone", formData.phone);
-    form.append("city", formData.city);
-    form.append(
-      "what_are_you_protecting",
-      formData.protection
-    );
-  }
+          headers: {
+            "Content-Type": "application/json",
+          },
 
-  if (selectedInterest === "partner") {
-    form.append(
-      "organisation",
-      formData.organisation
-    );
-    form.append("role", formData.role);
-  }
+          body: JSON.stringify(data),
+        }
+      );
 
-  form.append("message", formData.message);
+      const result = await response.json();
 
-  try {
-    const response = await fetch(
-      "https://formsubmit.co/ajax/gayatridey7044@gmail.com",
-      {
-        method: "POST",
-        body: form,
+      if (response.ok) {
+        setSubmitted(true);
+
+        setTimeout(() => {
+          document
+            .querySelector(".submission-message")
+            ?.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+        }, 100);
+      } else {
+        console.error(result);
+
+        alert(
+          "Something went wrong. Please try again."
+        );
       }
-    );
+    } catch (error) {
+      console.error(error);
 
-    if (response.ok) {
-      setSubmitted(true);
-
-      setTimeout(() => {
-        document
-          .querySelector(".submission-message")
-          ?.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-      }, 100);
-    } else {
-      alert("Something went wrong. Please try again.");
+      alert(
+        "Unable to connect to VAJRA server. Please try again."
+      );
     }
-  } catch (error) {
-    console.error(error);
-    alert("Unable to send your request. Please try again.");
-  }
-};
+  };
+
+  /* -------------------------------------------------------
+     DYNAMIC FORM FIELDS
+  ------------------------------------------------------- */
+
   const renderDynamicFields = () => {
     switch (selectedInterest) {
       case "reserve":
@@ -182,10 +192,21 @@ function ConversationPage({ onBack }) {
                   Select an option
                 </option>
 
-                <option value="Home">Home</option>
-                <option value="Family">Family</option>
-                <option value="Business">Business</option>
-                <option value="Other">Other</option>
+                <option value="Home">
+                  Home
+                </option>
+
+                <option value="Family">
+                  Family
+                </option>
+
+                <option value="Business">
+                  Business
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
               </select>
             </div>
           </>
@@ -194,7 +215,9 @@ function ConversationPage({ onBack }) {
       case "explore":
         return (
           <div className="form-field full-width">
-            <label>WHAT WOULD YOU LIKE TO KNOW?</label>
+            <label>
+              WHAT WOULD YOU LIKE TO KNOW?
+            </label>
 
             <textarea
               rows="5"
@@ -249,7 +272,9 @@ function ConversationPage({ onBack }) {
             </div>
 
             <div className="form-field full-width">
-              <label>HOW WOULD YOU LIKE TO PARTNER?</label>
+              <label>
+                HOW WOULD YOU LIKE TO PARTNER?
+              </label>
 
               <textarea
                 rows="5"
@@ -292,6 +317,10 @@ function ConversationPage({ onBack }) {
     }
   };
 
+  /* -------------------------------------------------------
+     SUBMIT BUTTON TEXT
+  ------------------------------------------------------- */
+
   const getButtonText = () => {
     switch (selectedInterest) {
       case "reserve":
@@ -311,6 +340,10 @@ function ConversationPage({ onBack }) {
     }
   };
 
+  /* -------------------------------------------------------
+     UI
+  ------------------------------------------------------- */
+
   return (
     <main className="conversation-page">
 
@@ -323,6 +356,10 @@ function ConversationPage({ onBack }) {
         }
         onBack={onBack}
       />
+
+      {/* =================================================
+          HERO
+      ================================================= */}
 
       <section className="conversation-hero">
 
@@ -344,6 +381,10 @@ function ConversationPage({ onBack }) {
         </p>
 
       </section>
+
+      {/* =================================================
+          INTERESTS
+      ================================================= */}
 
       <section className="interest-section">
 
@@ -371,7 +412,9 @@ function ConversationPage({ onBack }) {
               </span>
 
               <div>
-                <h2>{interest.title}</h2>
+                <h2>
+                  {interest.title}
+                </h2>
 
                 <p>
                   {interest.description}
@@ -388,6 +431,10 @@ function ConversationPage({ onBack }) {
         </div>
 
       </section>
+
+      {/* =================================================
+          FORM
+      ================================================= */}
 
       {selectedInterest && (
         <section
@@ -417,8 +464,13 @@ function ConversationPage({ onBack }) {
                 onSubmit={handleSubmit}
               >
 
+                {/* NAME */}
+
                 <div className="form-field">
-                  <label>FULL NAME</label>
+
+                  <label>
+                    FULL NAME
+                  </label>
 
                   <input
                     type="text"
@@ -432,10 +484,16 @@ function ConversationPage({ onBack }) {
                     }
                     required
                   />
+
                 </div>
 
+                {/* EMAIL */}
+
                 <div className="form-field">
-                  <label>EMAIL ADDRESS</label>
+
+                  <label>
+                    EMAIL ADDRESS
+                  </label>
 
                   <input
                     type="email"
@@ -449,22 +507,34 @@ function ConversationPage({ onBack }) {
                     }
                     required
                   />
+
                 </div>
 
+                {/* DYNAMIC FIELDS */}
+
                 {renderDynamicFields()}
+
+                {/* SUBMIT */}
 
                 <button
                   type="submit"
                   className="conversation-submit"
                 >
                   {getButtonText()}
-                  <span>→</span>
+
+                  <span>
+                    →
+                  </span>
                 </button>
 
               </form>
 
             </>
           ) : (
+
+            /* =================================================
+               SUCCESS MESSAGE
+            ================================================= */
 
             <div className="submission-message">
 
@@ -496,7 +566,11 @@ function ConversationPage({ onBack }) {
                 }}
               >
                 START AGAIN
-                <span>↗</span>
+
+                <span>
+                  ↗
+                </span>
+
               </button>
 
             </div>
