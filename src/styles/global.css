@@ -269,7 +269,7 @@ h2 span {
   left: 0;
   right: 0;
 
-  z-index: 100;
+  z-index: 1000;
 
   height: 72px;
 
