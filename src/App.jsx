@@ -206,43 +206,39 @@ const goBack = () => {
           PRODUCT EXPERIENCE
       ================================================= */}
 
-      {stage === "experience" && (
-        <div className="product-site">
-          <Navbar
-            onHome={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-            onBack={()=> setStage("reveal")}
-          />
-          <ProductHero
-            onExplore={() =>
-              document
-                .getElementById("capabilities")
-                ?.scrollIntoView({
-                  behavior: "smooth",
-                })
-            }
-            onRequestInfo={() =>
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({
-                  behavior: "smooth",
-                })
-            }
-          />
+     {stage === "experience" && (
+  <div className="product-site">
+    <Navbar
+      onHome={() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }}
+      onBack={() => setStage("reveal")}
+    />
 
-          <Capabilities />
+    <ProductHero
+      onExplore={() =>
+        document
+          .getElementById("capabilities")
+          ?.scrollIntoView({ behavior: "smooth" })
+      }
+      onRequestInfo={() =>
+        document
+          .getElementById("contact")
+          ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          })
+      }
+    />
 
-          <LiveSystem />
-
-          <Deployment />
-<FinalCTA
-  onStartConversation={() =>
-    setStage("contact")
-  }
+    <Capabilities />
+    <LiveSystem />
+    <Deployment />
+    <FinalCTA onStartConversation={() => setStage("contact")} 
+   
 />
 
           <Footer />

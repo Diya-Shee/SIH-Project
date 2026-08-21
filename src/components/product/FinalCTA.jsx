@@ -1,15 +1,4 @@
-function FinalCTA() {
-  const startConversation = () => {
-    window.location.href =
-      "mailto:contact@vajrasecurity.com" +
-      "?subject=" +
-      encodeURIComponent("Let's talk about VAJRA") +
-      "&body=" +
-      encodeURIComponent(
-        "Hi VAJRA team,\n\nI'd like to learn more about your autonomous security system.\n\n"
-      );
-  };
-
+function FinalCTA({ onStartConversation }) {
   return (
     <section 
         id="contact"
@@ -33,11 +22,11 @@ function FinalCTA() {
       </p>
 
       <button
-        className="cta-button"
-        onClick={startConversation}
-      >
-        Start a conversation →
-      </button>
+  className="cta-button"
+  onClick={onStartConversation}
+>
+  Start a conversation →
+</button>
     </section>
   );
 }
