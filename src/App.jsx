@@ -37,10 +37,16 @@ function App() {
   ------------------------------------------------------- */
 
   const selectConcern = (item) => {
-    setConcern(item);
-    setHoveredConcern(null);
-    setStage("scenario");
-  };
+  setConcern(item);
+  setHoveredConcern(null);
+
+  window.scrollTo({
+    top: 0,
+    behavior: "auto",
+  });
+
+  setStage("scenario");
+};
 
 
   /* -------------------------------------------------------
@@ -48,15 +54,26 @@ function App() {
   ------------------------------------------------------- */
 
   const selectScenario = (option) => {
-    setScenarioChoice(option);
-    setStage("problem");
-  };
+  setScenarioChoice(option);
+
+  window.scrollTo({
+    top: 0,
+    behavior: "auto",
+  });
+
+  setStage("problem");
+};
 
   /* -------------------------------------------------------
    BACK NAVIGATION
 ------------------------------------------------------- */
 
 const goBack = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "auto",
+  });
+
   if (stage === "concerns") {
     setStage("intro");
   }
@@ -180,15 +197,20 @@ const goBack = () => {
       )}
 
 
-      {stage === "problem" && (
-        <ProblemScreen
-          scenarioChoice={scenarioChoice}
-          onContinue={() =>
-            setStage("reveal")
-          }
-          onBack={goBack}
-        />
-      )}
+     {stage === "problem" && (
+  <ProblemScreen
+    scenarioChoice={scenarioChoice}
+    onContinue={() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "auto",
+      });
+
+      setStage("reveal");
+    }}
+    onBack={goBack}
+  />
+)}
 
 
       {/* =================================================
@@ -237,8 +259,15 @@ const goBack = () => {
     <Capabilities />
     <LiveSystem />
     <Deployment />
-    <FinalCTA onStartConversation={() => setStage("contact")} 
-   
+    <FinalCTA
+  onStartConversation={() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
+
+    setStage("contact");
+  }}
 />
 
           <Footer />
