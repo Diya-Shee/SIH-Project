@@ -136,27 +136,27 @@
 }
 
 .card-number {
-  color: #45423e;
+  color: #6a645d;
 
   font-family:
     "DM Mono",
     "Courier New",
     monospace;
 
-  font-size: 13px;
-  letter-spacing: 0.14em;
+  font-size: 15px;
+  letter-spacing: 0.08em;
 }
 
 .card-tag {
-  color: #48443e;
+  color: #6a645d;
 
   font-family:
     "DM Mono",
     "Courier New",
     monospace;
 
-  font-size: 12px;
-  letter-spacing: 0.14em;
+  font-size: 15px;
+  letter-spacing: 0.08em;
 
   transition: color 0.35s ease;
 }
