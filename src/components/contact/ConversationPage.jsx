@@ -66,20 +66,66 @@ function ConversationPage({ onBack }) {
     }, 100);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    setTimeout(() => {
-      document
-        .querySelector(".submission-message")
-        ?.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-    }, 100);
-  };
+  const form = new FormData();
 
+  form.append("name", formData.name);
+  form.append("email", formData.email);
+  form.append("_replyto", formData.email);
+  form.append(
+    "_subject",
+    `New VAJRA ${selectedData.title} Request`
+  );
+
+  if (selectedInterest === "reserve") {
+    form.append("phone", formData.phone);
+    form.append("city", formData.city);
+    form.append(
+      "what_are_you_protecting",
+      formData.protection
+    );
+  }
+
+  if (selectedInterest === "partner") {
+    form.append(
+      "organisation",
+      formData.organisation
+    );
+    form.append("role", formData.role);
+  }
+
+  form.append("message", formData.message);
+
+  try {
+    const response = await fetch(
+      "https://formsubmit.co/ajax/gayatridey7044@gmail.com",
+      {
+        method: "POST",
+        body: form,
+      }
+    );
+
+    if (response.ok) {
+      setSubmitted(true);
+
+      setTimeout(() => {
+        document
+          .querySelector(".submission-message")
+          ?.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+      }, 100);
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Unable to send your request. Please try again.");
+  }
+};
   const renderDynamicFields = () => {
     switch (selectedInterest) {
       case "reserve":
