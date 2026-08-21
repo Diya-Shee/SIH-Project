@@ -7,20 +7,15 @@ function IntroScreen({ onBegin }) {
       <div className="intro-glow" />
       <div className="intro-noise" />
 
-      {/* System status */}
-      <div className="system-status fade-up">
-        <span className="status-dot" />
-        <span>SYSTEM ONLINE</span>
-      </div>
+      
 
       {/* Main content */}
       <div className="intro-content">
         
-        <div className="eyebrow fade-up">
-          <span className="eyebrow-line" />
-          BEFORE YOU MEET THE SYSTEM
-        </div>
-
+       <div className="eyebrow fade-up">
+  <span className="eyebrow-line" />
+  START WITH YOUR BIGGEST CONCERN.
+</div>
         <h1 className="hero-question fade-up delay-one">
           YOU'RE
           <br />
