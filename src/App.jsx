@@ -198,6 +198,7 @@ const goBack = () => {
       {stage === "reveal" && (
         <VajraReveal
           onEnterSystem={enterSystem}
+          onBack={goBack}
         />
       )}
 
@@ -246,8 +247,10 @@ const goBack = () => {
         </div>
       )}
       {stage === "contact" && (
-  <ConversationPage />
-)}
+        <ConversationPage 
+          onBack={() => setStage("experience")}
+        />
+      )}
 
     </main>
   );
